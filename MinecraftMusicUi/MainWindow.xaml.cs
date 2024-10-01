@@ -86,12 +86,12 @@ namespace MinecraftMusicUi
             try
             {
                 var rand = App.random.Next(0, count);
+                minecraftSounds[rand].player.Play();
                 if (minecraftSounds[count - 1].reader == null)
                 {
                     return;
                 }
-                minecraftSounds[rand].player.Play();
-                minecraftSounds[rand].reader.Position = 0;
+                minecraftSounds[rand].reader.CurrentTime = new TimeSpan(0);
             }
             catch (Exception ex) { }
         }
