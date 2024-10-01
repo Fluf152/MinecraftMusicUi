@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -16,6 +17,7 @@ namespace MinecraftMusicUi.AudioClasses
         public Disc disc { get; set; }
         public WaveOut waveOut { get; set; }
         public Mp3FileReader mp3Reader { get; set; }
+        public string playerButtonImagePath { get; set; }
         public string strTimer
         {
             get
@@ -38,17 +40,13 @@ namespace MinecraftMusicUi.AudioClasses
 
         public Player(Disc disc)
         {
+            playerButtonImagePath = @"Resources/Images/StartButton.png";
             var slid = new Slider();
             this.disc = disc;
             var stream = new MemoryStream(disc.Music);
             mp3Reader = new Mp3FileReader(stream);
             waveOut = new WaveOut();
             waveOut.Init(mp3Reader);
-        }
-
-        public void SetPlayerTime(int time)
-        {
-            //mp3Reader.CurrentTime.Add()
         }
     }
 }

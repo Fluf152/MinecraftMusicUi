@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MinecraftMusicUi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="700"
+        Title="MainWindow" Height="750" Width="1100"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:ByteArrayToBitmapImageConverter x:Key="byteToImageConverter"/>
@@ -94,11 +94,11 @@
                                         <Button Style="{DynamicResource PlayerButton}"
                                                 Click="PlayerButtonClick">
                                             <Button.Content>
-                                                <Image Source="Resources/Images/StartButton.png"/>
+                                                <Image Source="{Binding playerButtonImagePath}"/>
                                             </Button.Content>
                                         </Button>
                                         <Slider Orientation="Horizontal" 
-                                            Width="160" 
+                                            Width="140" 
                                             Margin="10"
                                             Value="{Binding timer, Mode=TwoWay}"
                                             Maximum="{Binding mp3Reader.TotalTime.TotalSeconds }"/>

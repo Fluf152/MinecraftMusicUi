@@ -35,7 +35,7 @@ namespace MinecraftMusicUi
             LoadMinecraftSounds();
             _discsListViewinstance = dataManager.players;
             var timerCallBack = new TimerCallback(ListViewUpdate);
-            timer = new Timer(timerCallBack, 0, 0, 1000);
+            timer = new Timer(timerCallBack, 0, 0, 1500);
 
 
         }
@@ -57,28 +57,31 @@ namespace MinecraftMusicUi
         {
             var btn = (Button)sender;
             var discId = ((Disc)((Player)btn.DataContext).disc).Id;
-            var player = dataManager.players.First(x => x.disc.Id == discId).waveOut;
-            switch (player.PlaybackState)
+            var player = dataManager.players.First(x => x.disc.Id == discId);
+            string path = "";
+            switch (player.waveOut.PlaybackState)
             {
                 case PlaybackState.Playing:
                     {
-                        player.Pause();
-                        SetButtonImage(btn, @"Resources/Images/StartButton.png");
+                        player.waveOut.Pause();
+                        path = @"Resources/Images/StartButton.png";
                         break;
                     }
                 case PlaybackState.Stopped:
                     {
-                        player.Play();
-                        SetButtonImage(btn, @"Resources/Images/PauseButton.png");
+                        player.waveOut.Play();
+                        path = @"Resources/Images/PauseButton.png";
                         break;
                     }
                 case PlaybackState.Paused:
                     {
-                        player.Play();
-                        SetButtonImage(btn, @"Resources/Images/PauseButton.png");
+                        player.waveOut.Play();
+                        path = @"Resources/Images/PauseButton.png";
                         break;
                     }
             }
+            player.playerButtonImagePath = path;
+            SetButtonImage(btn, path);
         }
 
         private void SetButtonImage(Button button, string path)
