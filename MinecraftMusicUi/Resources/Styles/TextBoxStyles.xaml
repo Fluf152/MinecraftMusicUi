@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="MinecraftTextBox" TargetType="TextBox">
+        <Setter Property="FontFamily" Value ="{DynamicResource PixelifySans}"/>
+        <Setter Property="Background" Value="#888888"/>
+        <Setter Property="Foreground" Value="#E4E4E4"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="AcceptsReturn" Value="False"/>
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="14"/>
+        
+    </Style>
+</ResourceDictionary>

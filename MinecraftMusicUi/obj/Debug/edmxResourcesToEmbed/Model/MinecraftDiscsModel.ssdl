@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MinecraftDiscsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Disc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Author" Type="varchar" MaxLength="255" />
+    <Property Name="Title" Type="varchar" MaxLength="255" />
+    <Property Name="Picture" Type="varbinary(max)" />
+    <Property Name="Music" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="MinecraftDiscsModelStoreContainer">
+    <EntitySet Name="Disc" EntityType="Self.Disc" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

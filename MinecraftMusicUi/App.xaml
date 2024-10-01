@@ -1,0 +1,18 @@
+﻿<Application x:Class="MinecraftMusicUi.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MinecraftMusicUi"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/TextBoxStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ListViewStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/TextBlockStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Fonts/FontStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <local:ByteArrayToBitmapImageConverter x:Key="byteToImageConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
