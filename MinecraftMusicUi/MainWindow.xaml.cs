@@ -25,19 +25,32 @@ namespace MinecraftMusicUi
     {
         DataManager dataManager;
         List<VorbisPlayer> minecraftSounds;
+        List<Player> _discsListViewinstance;
+        Timer timer;
         public MainWindow()
         {
             InitializeComponent();
             dataManager = new DataManager();
             dataManager.LoadPlayers();
             LoadMinecraftSounds();
-            DiscsListView.ItemsSource = dataManager.players;
+            _discsListViewinstance = dataManager.players;
+            var timerCallBack = new TimerCallback(ListViewUpdate);
+            timer = new Timer(timerCallBack, 0, 0, 1000);
+
+
+        }
+
+        public void ListViewUpdate(object value)
+        {
+            this.Dispatcher.Invoke(new Action(() => {
+                DiscsListView.ItemsSource = null;
+                DiscsListView.ItemsSource = _discsListViewinstance;
+            }));
         }
 
         public void SearchButtonClick(object sender, RoutedEventArgs e)
         {
-            DiscsListView.ItemsSource = null;
-            DiscsListView.ItemsSource = dataManager.players.Where(x => x.disc.Title.ToLower().Contains(SearchTextBox.Text)).ToList();
+            _discsListViewinstance = dataManager.players.Where(x => x.disc.Title.ToLower().Contains(SearchTextBox.Text)).ToList();
         }
 
         public void PlayerButtonClick(object sender, RoutedEventArgs e)
