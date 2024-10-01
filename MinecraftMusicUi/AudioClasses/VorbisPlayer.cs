@@ -1,4 +1,5 @@
-﻿using NAudio.Vorbis;
+﻿using NAudio.Codecs;
+using NAudio.Vorbis;
 using NAudio.Wave;
 using NVorbis;
 using System;
@@ -13,15 +14,16 @@ namespace MinecraftMusicUi.AudioClasses
     {
 
         public VorbisWaveReader reader;
-        public WaveOutEvent player;
-        public VorbisPlayer(string path) 
+        public WaveOut player;
+        public VorbisPlayer(string path)
         {
             reader = new VorbisWaveReader(path);
-            player = new WaveOutEvent();
+            player = new WaveOut();
             player.Init(reader);
         }
         public void Play()
         {
+            reader.CurrentTime = TimeSpan.Zero;
             player.Play();
         }
     }
