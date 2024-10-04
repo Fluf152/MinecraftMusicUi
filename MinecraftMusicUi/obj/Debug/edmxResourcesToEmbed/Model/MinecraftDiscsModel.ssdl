@@ -7,8 +7,8 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Author" Type="varchar" MaxLength="255" />
     <Property Name="Title" Type="varchar" MaxLength="255" />
-    <Property Name="Picture" Type="varbinary(max)" />
-    <Property Name="Music" Type="varbinary(max)" />
+    <Property Name="Picture" Type="varchar(max)" />
+    <Property Name="Music" Type="varchar(max)" />
   </EntityType>
   <EntityContainer Name="MinecraftDiscsModelStoreContainer">
     <EntitySet Name="Disc" EntityType="Self.Disc" Schema="dbo" store:Type="Tables" />

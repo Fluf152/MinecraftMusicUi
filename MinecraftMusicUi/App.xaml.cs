@@ -14,6 +14,7 @@ namespace MinecraftMusicUi
     /// </summary>
     public partial class App : Application
     {
+        public static string dbFilesPath = @"../../../Db/ForDb";
         public static Random random = new Random();
         public static MinecraftDiscsEntities db = new MinecraftDiscsEntities();
     }

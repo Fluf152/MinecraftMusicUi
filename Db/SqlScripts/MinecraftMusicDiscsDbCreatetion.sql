@@ -15,8 +15,8 @@ create table Disc(
 	Id int constraint PK_Disc_Id primary key identity,
 	Author varchar(255),
 	Title varchar(255),
-	Picture varbinary(max),
-	Music varbinary(max)
+	Picture varchar(max),
+	Music varchar(max)
 )
 go
 
@@ -25,38 +25,38 @@ INSERT INTO Disc (Author, Title, Picture, Music)
 VALUES (
     'C418', 
     'Cat', 
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Images\Cat.png', SINGLE_BLOB) AS Picture),
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Music\Cat.mp3', SINGLE_BLOB) AS Music)
+	'Cat.png',
+	'Cat.mp3'
 );
 
 INSERT INTO Disc (Author, Title, Picture, Music)
 VALUES (
     'C418', 
     'Far', 
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Images\Far.png', SINGLE_BLOB) AS Picture),
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Music\Far.mp3', SINGLE_BLOB) AS Music)
+    'Far.png',
+    'Far.mp3'
 );
 
 INSERT INTO Disc (Author, Title, Picture, Music)
 VALUES (
     'C418', 
     'Stal', 
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Images\Stal.png', SINGLE_BLOB) AS Picture),
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Music\Stal.mp3', SINGLE_BLOB) AS Music)
+    'Stal.png',
+    'Stal.mp3'
 );
 
 INSERT INTO Disc (Author, Title, Picture, Music)
 VALUES (
     'C418', 
     'Strad', 
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Images\Strad.png', SINGLE_BLOB) AS Picture),
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Music\Strad.mp3', SINGLE_BLOB) AS Music)
+    'Strad.png',
+    'Strad.mp3'
 );
 
 INSERT INTO Disc (Author, Title, Picture, Music)
 VALUES (
     'C418', 
     'Ward', 
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Images\Ward.png', SINGLE_BLOB) AS Picture),
-    (SELECT * FROM OPENROWSET(BULK 'C:\MyProjects\C#\MinecraftMusicUi\ForDb\Music\Ward.mp3', SINGLE_BLOB) AS Music)
+    'Ward.png', 
+    'Ward.mp3'
 );

@@ -12,14 +12,14 @@ namespace MinecraftMusicUi
 {
     public class ByteArrayToBitmapImageConverter : IValueConverter
     {
-        public BitmapImage ConvertByteArrayToBitMapImage(byte[] imageByteArray)
+        public BitmapImage ConvertByteArrayToBitMapImage(string fileName)
         {
             BitmapImage img = new BitmapImage();
-            using (MemoryStream memStream = new MemoryStream(imageByteArray))
+            using (FileStream fileStream = new FileStream(App.dbFilesPath +"/Images/"+ fileName, FileMode.Open))
             {
                 img.BeginInit();
                 img.CacheOption = BitmapCacheOption.OnLoad;
-                img.StreamSource = memStream;
+                img.StreamSource = fileStream;
                 img.EndInit();
                 img.Freeze();
             }
@@ -31,7 +31,7 @@ namespace MinecraftMusicUi
             BitmapImage img = new BitmapImage();
             if (value != null)
             {
-                img = this.ConvertByteArrayToBitMapImage(value as byte[]);
+                img = this.ConvertByteArrayToBitMapImage(value as string);
             }
             return img;
         }

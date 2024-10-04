@@ -12,8 +12,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Author" Type="varchar" MaxLength="255" />
           <Property Name="Title" Type="varchar" MaxLength="255" />
-          <Property Name="Picture" Type="varbinary(max)" />
-          <Property Name="Music" Type="varbinary(max)" />
+          <Property Name="Picture" Type="varchar(max)" />
+          <Property Name="Music" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="MinecraftDiscsModelStoreContainer">
           <EntitySet Name="Disc" EntityType="Self.Disc" Schema="dbo" store:Type="Tables" />
@@ -30,8 +30,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Author" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Music" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Music" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="MinecraftDiscsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Disc" EntityType="Self.Disc" />

@@ -69,6 +69,7 @@ namespace MinecraftMusicUi
                     }
                 case PlaybackState.Stopped:
                     {
+                        player.mp3Reader.CurrentTime = TimeSpan.Zero;
                         player.waveOut.Play();
                         path = @"Resources/Images/PauseButton.png";
                         break;
