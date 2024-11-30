@@ -8,8 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/minecraftdiscsmodel.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/minecraftdiscsmodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/discsmodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/discsmodel.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sounds/minecraftnotes/1.ogg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sounds/minecraftnotes/2.ogg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/sounds/minecraftnotes/3.ogg")]

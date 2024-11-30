@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="/Resources/Styles/TextBoxStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/ListViewStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Styles/TextBlockStyles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/ComboBoxStyles.xaml"/>
                 <ResourceDictionary Source="/Resources/Fonts/FontStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <local:ByteArrayToBitmapImageConverter x:Key="byteToImageConverter"/>

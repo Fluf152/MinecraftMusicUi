@@ -12,14 +12,18 @@ namespace MinecraftMusicUi.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Disc
+    public partial class Author
     {
-        public int Id { get; set; }
-        public Nullable<int> AuthorId { get; set; }
-        public string Title { get; set; }
-        public string Picture { get; set; }
-        public string Music { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Author()
+        {
+            this.Disc = new HashSet<Disc>();
+        }
     
-        public virtual Author Author { get; set; }
+        public int Id { get; set; }
+        public string AuthorName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Disc> Disc { get; set; }
     }
 }

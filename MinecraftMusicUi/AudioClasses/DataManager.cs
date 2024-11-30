@@ -13,7 +13,19 @@ namespace MinecraftMusicUi.AudioClasses
 
         public void LoadPlayers()
         {
-            players = new List<Player>();
+            if (players != null)
+            {
+                foreach (var player in players)
+                {
+                    player.CloseReader();
+                }
+                players.Clear();
+            }
+            else 
+            {
+                players = new List<Player>();
+            }
+            
             var discs = App.db.Disc.ToList();
             foreach (var disc in discs)
             {

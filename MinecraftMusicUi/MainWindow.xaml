@@ -32,20 +32,26 @@
                              x:Name="SearchTextBox"
                              Height="40"
                              Width="280"
-                             Margin="10"/>
-                    <Button 
-                        Style="{DynamicResource  MinecraftButton}"
-                        Height="40"
-                        Width="160"
-                        Content="Найти"
-                        Margin="10"
-                        Click="SearchButtonClick"/>
+                             Margin="10" TextChanged="SearchTextBoxTextChanged"/>
+
                     <Button 
                         Style="{DynamicResource  MinecraftButton}"
                         Height="40"
                         Width="160"
                         Content="Крафт"
                         Margin="10"/>
+                    <ComboBox 
+                        Style="{DynamicResource  MinecraftComboBox}"
+                        x:Name="AuthorComboBox"
+                        Width="160"
+                        Height="40"
+                        DisplayMemberPath="AuthorName" 
+                        SelectionChanged="AuthorComboBoxSelectionChanged"/>
+                    <Button Style="{DynamicResource MinecraftButton}"
+                            Width="120"
+                            Height="40"
+                            Content="Обновить"
+                            Margin="10" Click="UpdateButtonClick"/>
                 </StackPanel>
             </Border>
             <ListView
@@ -74,7 +80,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Style="{DynamicResource MinecraftTextBlock}"
                                                Margin="5"
-                                               Text="{Binding disc.Author}"
+                                               Text="{Binding disc.Author.AuthorName}"
                                                HorizontalAlignment="Left"
                                                VerticalAlignment="Bottom"
                                                Grid.Column="0"/>

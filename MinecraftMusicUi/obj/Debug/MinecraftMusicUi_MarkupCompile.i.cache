@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\MyProjects\C#\MinecraftMusicUi\MinecraftMusicUi\App.xaml
-61827012498
-9-489981873
-14-1864043020
+8-235033085
+91890914387
+16-2020245146
 139-1472517499
-MainWindow.xaml;Resources\Fonts\FontStyles.xaml;Resources\Styles\ButtonStyles.xaml;Resources\Styles\ListViewStyles.xaml;Resources\Styles\TextBlockStyles.xaml;Resources\Styles\TextBoxStyles.xaml;
+MainWindow.xaml;Resources\Fonts\FontStyles.xaml;Resources\Styles\ButtonStyles.xaml;Resources\Styles\ComboBoxStyles.xaml;Resources\Styles\ListViewStyles.xaml;Resources\Styles\TextBlockStyles.xaml;Resources\Styles\TextBoxStyles.xaml;Windows\DiscAddWindow.xaml;
 
 False
 

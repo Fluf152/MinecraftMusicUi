@@ -41,12 +41,30 @@ namespace MinecraftMusicUi.AudioClasses
         public Player(Disc disc)
         {
             playerButtonImagePath = @"Resources/Images/StartButton.png";
-            var slid = new Slider();
             this.disc = disc;
-            var stream = new FileStream(App.dbFilesPath+"/Music/" + disc.Music, FileMode.Open);
+            var filePath = App.dbFilesPath + "/Music/" + disc.Music;
+            var stream = new FileStream(filePath, FileMode.Open);
             mp3Reader = new Mp3FileReader(stream);
             waveOut = new WaveOut();
             waveOut.Init(mp3Reader);
+        }
+
+        public void CloseReader()
+        {
+            if (waveOut != null)
+            {
+                if (waveOut.PlaybackState == PlaybackState.Playing)
+                {
+                    waveOut.Stop();
+                }
+                waveOut.Dispose();
+                waveOut = null;
+            }
+            if (mp3Reader != null)
+            {
+                mp3Reader.Dispose();
+                mp3Reader = null;
+            }
         }
     }
 }

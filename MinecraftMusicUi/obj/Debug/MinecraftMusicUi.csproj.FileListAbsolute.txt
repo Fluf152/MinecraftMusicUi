@@ -66,3 +66,6 @@ C:\MyProjects\C#\MinecraftMusicUi\MinecraftMusicUi\bin\Debug\Resources\Sounds\Mi
 C:\MyProjects\C#\MinecraftMusicUi\MinecraftMusicUi\bin\Debug\Resources\Sounds\MinecraftNotes\5.ogg
 C:\MyProjects\C#\MinecraftMusicUi\MinecraftMusicUi\bin\Debug\Resources\Sounds\MinecraftNotes\6.ogg
 C:\MyProjects\C#\MinecraftMusicUi\MinecraftMusicUi\bin\Debug\Resources\Sounds\MinecraftNotes\7.ogg
+C:\MyProjects\C#\MinecraftMusicUi\MinecraftMusicUi\obj\Debug\Resources\Styles\ComboBoxStyles.baml
+C:\MyProjects\C#\MinecraftMusicUi\MinecraftMusicUi\obj\Debug\Windows\DiscAddWindow.g.cs
+C:\MyProjects\C#\MinecraftMusicUi\MinecraftMusicUi\obj\Debug\Windows\DiscAddWindow.baml

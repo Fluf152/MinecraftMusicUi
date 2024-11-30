@@ -25,6 +25,7 @@ namespace MinecraftMusicUi.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Disc> Disc { get; set; }
     }
 }

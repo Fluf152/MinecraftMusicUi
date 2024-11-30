@@ -27,25 +27,39 @@ namespace MinecraftMusicUi
         List<VorbisPlayer> minecraftSounds;
         List<Player> _discsListViewinstance;
         Timer timer;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            var authorList = App.db.Author.ToList();
+            authorList.Insert(0, new Author() { AuthorName = "Все"});
+            AuthorComboBox.ItemsSource = authorList;
+
             dataManager = new DataManager();
             dataManager.LoadPlayers();
             LoadMinecraftSounds();
             _discsListViewinstance = dataManager.players;
-            var timerCallBack = new TimerCallback(ListViewUpdate);
+            var timerCallBack = new TimerCallback(ListViewTimerClick);
             timer = new Timer(timerCallBack, 0, 0, 1500);
-
-
         }
 
-        public void ListViewUpdate(object value)
+        public void ListViewTimerClick(object value)
         {
-            this.Dispatcher.Invoke(new Action(() => {
+                Dispatcher.Invoke(new Action(() => {
                 DiscsListView.ItemsSource = null;
                 DiscsListView.ItemsSource = _discsListViewinstance;
             }));
+        }
+
+        public void DiscsListViewUpdate()
+        {
+            _discsListViewinstance = dataManager.players;
+            if(AuthorComboBox.SelectedItem != null && AuthorComboBox.SelectedIndex != 0)
+            {
+                _discsListViewinstance = _discsListViewinstance.Where((d) => d.disc.Author.Id == (AuthorComboBox.SelectedItem as Author).Id).ToList();
+            }
+            _discsListViewinstance = dataManager.players.Where(x => x.disc.Title.ToLower().Contains(SearchTextBox.Text)).ToList();
         }
 
         public void SearchButtonClick(object sender, RoutedEventArgs e)
@@ -107,6 +121,7 @@ namespace MinecraftMusicUi
             }
             catch (Exception ex) { }
         }
+
         private void LoadMinecraftSounds()
         {
             minecraftSounds = new List<VorbisPlayer>();
@@ -114,6 +129,22 @@ namespace MinecraftMusicUi
             {
                 minecraftSounds.Add(new VorbisPlayer($@"Resources/Sounds/MinecraftNotes/{i}.ogg"));
             }
+        }
+
+        private void SearchTextBoxTextChanged(object sender, TextChangedEventArgs e)
+        {
+            DiscsListViewUpdate();
+        }
+
+        private void AuthorComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DiscsListViewUpdate();
+        }
+
+        private void UpdateButtonClick(object sender, RoutedEventArgs e)
+        {
+            dataManager.LoadPlayers();
+            DiscsListViewUpdate();
         }
     }
 }

@@ -5,36 +5,86 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="MinecraftDiscsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuthorName" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
         <EntityType Name="Disc">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Author" Type="varchar" MaxLength="255" />
+          <Property Name="AuthorId" Type="int" />
           <Property Name="Title" Type="varchar" MaxLength="255" />
           <Property Name="Picture" Type="varchar(max)" />
           <Property Name="Music" Type="varchar(max)" />
         </EntityType>
+        <Association Name="FK_Disc_To_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Disc" Type="Self.Disc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disc">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MinecraftDiscsModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Disc" EntityType="Self.Disc" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Disc_To_Author" Association="Self.FK_Disc_To_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Disc" EntitySet="Disc" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MinecraftDiscsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Disc" Relationship="Self.FK_Disc_To_Author" FromRole="Author" ToRole="Disc" />
+        </EntityType>
         <EntityType Name="Disc">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Author" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorId" Type="Int32" />
           <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Music" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Disc_To_Author" FromRole="Disc" ToRole="Author" />
         </EntityType>
+        <Association Name="FK_Disc_To_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Disc" Type="Self.Disc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Disc">
+              <PropertyRef Name="AuthorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MinecraftDiscsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Author" EntityType="Self.Author" />
           <EntitySet Name="Disc" EntityType="Self.Disc" />
+          <AssociationSet Name="FK_Disc_To_Author" Association="Self.FK_Disc_To_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Disc" EntitySet="Disc" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -42,11 +92,19 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MinecraftDiscsModelStoreContainer" CdmEntityContainer="MinecraftDiscsEntities">
+          <EntitySetMapping Name="Author">
+            <EntityTypeMapping TypeName="MinecraftDiscsModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Disc">
             <EntityTypeMapping TypeName="MinecraftDiscsModel.Disc">
               <MappingFragment StoreEntitySet="Disc">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="Music" ColumnName="Music" />

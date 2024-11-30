@@ -116,6 +116,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Author.cs">
+      <DependentUpon>DiscsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Disc.cs">
+      <DependentUpon>DiscsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DiscsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiscsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DiscsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiscsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DiscsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiscsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DiscAddWindow.xaml.cs">
+      <DependentUpon>DiscAddWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,6 +164,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Styles\ComboBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Styles\ListViewStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,26 +180,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\DiscAddWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Disc.cs">
-      <DependentUpon>MinecraftDiscsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MinecraftDiscsModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MinecraftDiscsModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MinecraftDiscsModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MinecraftDiscsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MinecraftDiscsModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MinecraftDiscsModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -189,12 +203,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\MinecraftDiscsModel.edmx">
+    <EntityDeploy Include="Model\DiscsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MinecraftDiscsModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DiscsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\MinecraftDiscsModel.edmx.diagram">
-      <DependentUpon>MinecraftDiscsModel.edmx</DependentUpon>
+    <None Include="Model\DiscsModel.edmx.diagram">
+      <DependentUpon>DiscsModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -208,15 +222,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\MinecraftDiscsModel.Context.tt">
+    <Content Include="Model\DiscsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MinecraftDiscsModel.edmx</DependentUpon>
-      <LastGenOutput>MinecraftDiscsModel.Context.cs</LastGenOutput>
+      <DependentUpon>DiscsModel.edmx</DependentUpon>
+      <LastGenOutput>DiscsModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\MinecraftDiscsModel.tt">
+    <Content Include="Model\DiscsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MinecraftDiscsModel.edmx</DependentUpon>
-      <LastGenOutput>MinecraftDiscsModel.cs</LastGenOutput>
+      <DependentUpon>DiscsModel.edmx</DependentUpon>
+      <LastGenOutput>DiscsModel.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\Sounds\MinecraftNotes\1.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
